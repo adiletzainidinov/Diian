@@ -4,8 +4,10 @@ import relativeImg from '../assets/images/relativeImg.png';
 import { useSelector } from 'react-redux';
 import WatchArticle from '../assets/images/carwatch.jpeg';
 import WatchArticleRelative from '../assets/images/watchArticleRelative.png';
+import PropTypes from 'prop-types';
 
-const Article = () => {
+
+const Article = ({ aboutId }) => {
   const { isCatalog } = useSelector((state) => state.catalog);
 
   return (
@@ -25,7 +27,7 @@ const Article = () => {
                 alt=""
               />
             </MainImgBox>
-            <h2>О нас</h2>
+            <h2 id={aboutId}>О нас</h2>
           </LeftBox>
           <RightBox>
             <h3>
@@ -112,7 +114,7 @@ const MainImgBox = styled('div')(() => ({
     maxHeight: 450,
     borderTopLeftRadius: '200px',
     borderTopRightRadius: '200px',
-	borderBottomLeftRadius: '200px',
+    borderBottomLeftRadius: '200px',
     borderBottomRightRadius: '200px',
   },
   '@media (max-width: 990px)': {
@@ -139,7 +141,7 @@ const MainImgBox = styled('div')(() => ({
     },
     '& .realativeImg': {
       maxWidth: 160,
-      maxHeight: 300,
+      maxHeight: 250,
     },
   },
   '@media (max-width: 430px)': {
@@ -148,7 +150,13 @@ const MainImgBox = styled('div')(() => ({
     },
     '& .realativeImg': {
       maxWidth: 150,
-      maxHeight: 250,
+      maxHeight: 200,
+    },
+  },
+  '@media (max-width: 350px)': {
+    '& .realativeImg': {
+      maxWidth: 120,
+      right: -20,
     },
   },
 }));
@@ -251,3 +259,7 @@ const RightBox = styled('div')(() => ({
     },
   },
 }));
+
+Article.propTypes = {
+  aboutId: PropTypes.string.isRequired, 
+};

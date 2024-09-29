@@ -12,8 +12,9 @@ import {
 } from '../store/slices/catalogSlice/catalogSlice';
 import watchRelativeReal from '../assets/images/relativeSecond.png';
 import watchRelative from '../assets/images/watchRelative.png';
+import PropTypes from 'prop-types';
 
-const Header = () => {
+const Header = ({ aboutId, contactId, tovarId }) => {
   const dispatch = useDispatch();
   const { isCatalog } = useSelector((state) => state.catalog);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -51,8 +52,8 @@ const Header = () => {
                 </MenuIconWrapper>
 
                 <NavItems className={menuOpen ? 'active' : ''}>
-                  <a href="#">О нас</a>
-                  <a href="#" style={{ position: 'relative' }}>
+                  <a href={`#${aboutId}`}>О нас</a>
+                  <a href={`#`} style={{ position: 'relative' }}>
                     <p onClick={handleCatalog}>Каталог</p>{' '}
                     {catalog && (
                       <Catalog>
@@ -68,8 +69,8 @@ const Header = () => {
                       </Catalog>
                     )}
                   </a>
-                  <a href="#">Контакты</a>
-                  <a href="#">Доставка</a>
+                  <a href={`#${tovarId}`}>Товары</a>
+                  <a href={`#${contactId}`}>Контакты</a>
                 </NavItems>
               </NavLink>
 
@@ -438,3 +439,9 @@ const Catalog = styled(Box)(() => ({
     marginTop: 5,
   },
 }));
+
+Header.propTypes = {
+  aboutId: PropTypes.string.isRequired,
+  contactId: PropTypes.string.isRequired,
+  tovarId: PropTypes.string.isRequired,
+};

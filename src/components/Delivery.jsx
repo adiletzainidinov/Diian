@@ -1,14 +1,15 @@
 import { Box, Button, styled, Typography, useTheme } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import PropTypes from 'prop-types';
 
-const Delivery = () => {
+const Delivery = ({contactId}) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <>
       <Container>
-        <MainBox>
+        <MainBox id={contactId}>
           <DeliveryText isMobile={isMobile}>Доставка</DeliveryText>
           <FlexButton isMobile={isMobile}>
             <a href="http://wa.me/+996709987557">
@@ -81,3 +82,7 @@ const StyleButton = styled(Button)(({ isMobile }) => ({
     marginTop: 0,
   },
 }));
+
+Delivery.propTypes = {
+  contactId: PropTypes.string.isRequired, 
+};

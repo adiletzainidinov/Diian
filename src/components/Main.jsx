@@ -8,8 +8,8 @@ import star from '../assets/images/star.svg';
 import right from '../assets/images/right.svg';
 import left from '../assets/images/left.svg';
 import watch from '../assets/images/watchRelative.png';
-import {  useSelector } from 'react-redux';
-
+import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const products = [
   {
@@ -113,14 +113,12 @@ const productsWatch = [
   },
 ];
 
-
-const Main = () => {
-  const {isCatalog} = useSelector(state => state.catalog)
+const Main = ({ tovarId }) => {
+  const { isCatalog } = useSelector((state) => state.catalog);
   const [currentIndex, setCurrentIndex] = useState(0);
   //   const [showMore, setShowMore] = useState(false);
 
   const displayedProducts = isCatalog ? products : productsWatch;
-
 
   const isLargeScreen = useMediaQuery('(min-width: 991px)');
   const itemsToShow = isLargeScreen ? 3 : 1;
@@ -149,11 +147,9 @@ const Main = () => {
     window.open(whatsappUrl, '_blank');
   };
 
-
-
   return (
     <Container>
-      <MainBox>
+      <MainBox id={tovarId}>
         <TextTovar>Наши товары</TextTovar>
         <SliderContainer>
           <ArrowLeft src={left} alt="left arrow" onClick={prevSlide} />
@@ -443,3 +439,7 @@ const ArrowRight = styled('img')(() => ({
     width: '24px',
   },
 }));
+
+Main.propTypes = {
+  tovarId: PropTypes.string.isRequired,
+};
