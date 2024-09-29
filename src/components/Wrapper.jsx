@@ -1,6 +1,6 @@
+import Header from "./Header";
 import Article from "./Article";
 import Delivery from "./Delivery";
-import Header from "./Header";
 import Main from "./Main";
 
 const Wrapper = () => {
