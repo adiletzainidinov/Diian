@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  isCatalog: false,
+  isCatalog: true,
 };
 
 const catalogSlice = createSlice({

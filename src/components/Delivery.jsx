@@ -12,12 +12,12 @@ const Delivery = ({contactId}) => {
         <MainBox id={contactId}>
           <DeliveryText isMobile={isMobile}>Доставка</DeliveryText>
           <FlexButton isMobile={isMobile}>
-            <a href="http://wa.me/+996709987557">
+            <a href="http://wa.me/+79538402783">
               <StyleButton isMobile={isMobile} variant="outlined">
                 Доставка курьером по Москве
               </StyleButton>
             </a>
-            <a href="http://wa.me/+996709987557">
+            <a href="http://wa.me/+79538402783">
               <StyleButton isMobile={isMobile} variant="outlined">
                 Самовывоз
               </StyleButton>
@@ -28,7 +28,7 @@ const Delivery = ({contactId}) => {
               variant="outlined"
               sx={{ backgroundColor: '#ffffff', marginTop: '100px' }}
             >
-              Наш телефон +79538402783
+              Наш телефон +7 953 840 27 83
             </StyleButton>
           </FlexButton>
         </MainBox>
